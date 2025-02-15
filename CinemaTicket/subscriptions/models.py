@@ -22,6 +22,3 @@ class Subscription(models.Model):
         elif self.sub_type == SubscriptionType.GOLD:
             return amount * 0.5  # 50% تخفیف
         return amount  # بدون تخفیف
-
-    def __str__(self):
-        return f"Subscription {self.sub_type} (User: {self.user.email})"

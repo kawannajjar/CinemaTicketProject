@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>لیست سانس‌ها</title>
+</head>
+<body>
+    <h1>لیست سانس‌ها</h1>
+    <ul>
+        {% for session in sessions %}
+            <li>
+                <strong>{{ session.movie.title }}</strong> - 
+                زمان شروع: {{ session.start_time }} - 
+                زمان پایان: {{ session.end_time }} - 
+                ظرفیت باقی‌مانده: {{ session.remaining_capacity }}
+                <a href="{% url 'book-session' session.id %}">رزرو</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
