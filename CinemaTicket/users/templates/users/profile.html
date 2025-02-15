@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>پروفایل کاربر</title>
+</head>
+<body>
+    <h1>پروفایل کاربر</h1>
+    <p>ایمیل: {{ user.email }}</p>
+    <p>تاریخ تولد: {{ user.birthdate }}</p>
+    <a href="{% url 'edit-profile' %}">ویرایش پروفایل</a>
+</body>
+</html>

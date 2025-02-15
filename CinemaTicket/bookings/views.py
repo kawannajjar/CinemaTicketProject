@@ -2,7 +2,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Session, Booking
 from users.models import User
+import logging
 
+
+
+
+logger = logging.getLogger(__name__)
 
 def book_session(request, session_id):
     session = get_object_or_404(Session, id=session_id)

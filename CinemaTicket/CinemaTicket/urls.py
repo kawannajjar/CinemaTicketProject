@@ -7,4 +7,7 @@ urlpatterns = [
     path('test-log/', test_log, name='test-log'),
     path('admin/', admin.site.urls),
     path('bookings/', include('bookings.urls')),
+    path('users/', include('users.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+
 ]
