@@ -7,7 +7,14 @@ import logging
 
 
 
+
 logger = logging.getLogger(__name__)
+
+
+from django.shortcuts import render
+
+def home(request):
+    return render(request, 'bookings/home.html')
 
 def book_session(request, session_id):
     session = get_object_or_404(Session, id=session_id)

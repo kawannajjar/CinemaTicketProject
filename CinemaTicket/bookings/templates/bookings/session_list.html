@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <title>لیست سانس‌ها</title>
-</head>
-<body>
-    <h1>لیست سانس‌ها</h1>
-    <ul>
-        {% for session in sessions %}
-            <li>
-                <strong>{{ session.movie.title }}</strong> - 
-                زمان شروع: {{ session.start_time }} - 
-                زمان پایان: {{ session.end_time }} - 
-                ظرفیت باقی‌مانده: {{ session.remaining_capacity }}
-                <a href="{% url 'book-session' session.id %}">رزرو</a>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1 class="text-center">لیست سانس‌ها</h1>
+        <ul class="list-group mt-4">
+            {% for session in sessions %}
+                <li class="list-group-item">
+                    <strong>{{ session.movie.title }}</strong> - 
+                    زمان شروع: {{ session.start_time }} - 
+                    زمان پایان: {{ session.end_time }} - 
+                    ظرفیت باقی‌مانده: {{ session.capacity - session.booked_seats }}
+                    <a href="{% url 'book-session' session.id %}" class="btn btn-success btn-sm float-end">رزرو</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
