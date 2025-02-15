@@ -10,7 +10,7 @@
                     <strong>{{ session.movie.title }}</strong> - 
                     زمان شروع: {{ session.start_time }} - 
                     زمان پایان: {{ session.end_time }} - 
-                    ظرفیت باقی‌مانده: {{ session.capacity - session.booked_seats }}
+                    ظرفیت باقی‌مانده: {{ session.remaining_capacity }}
                     <a href="{% url 'book-session' session.id %}" class="btn btn-success btn-sm float-end">رزرو</a>
                 </li>
             {% endfor %}

@@ -1,21 +1,17 @@
-from django.http import HttpResponse
-import logging
 from django.shortcuts import render, redirect
+import logging
+from django.contrib.auth import login
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login 
-from .forms import UserRegistrationForm
+from django.contrib import messages
+from .forms import UserRegistrationForm  # وارد کردن فرم
 
 
-
-
-
-@login_required
-def profile(request):
-    user = request.user
-    return render(request, 'users/profile.html', {'user': user})
 
 
 logger = logging.getLogger(__name__)
+
+
 
 def test_log(request):
     logger.debug('این یک لاگ تست است!')
@@ -23,18 +19,23 @@ def test_log(request):
 
 
 @login_required
+def profile(request):
+    user = request.user
+    return render(request, 'users/profile.html', {'user': user})
+
+@login_required
 def edit_profile(request):
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=request.user)
+        form = UserRegistrationForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
             messages.success(request, "پروفایل شما با موفقیت به‌روزرسانی شد.")
             return redirect('profile')
     else:
-        form = UserProfileForm(instance=request.user)
+        form = UserRegistrationForm(instance=request.user)
     return render(request, 'users/edit_profile.html', {'form': form})
 
-def signup_view(request):  # یا def signup(request):
+def signup_view(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():

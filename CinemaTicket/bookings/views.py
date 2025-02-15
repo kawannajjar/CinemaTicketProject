@@ -21,7 +21,7 @@ def book_session(request, session_id):
     user = request.user
 
     # بررسی رده سنی کاربر
-    if user.age < session.movie.age_rating:
+    if user.age < session.movie.age_rating:  # استفاده از متد age
         messages.error(request, "شما مجاز به رزرو این سانس نیستید (محدودیت سنی).")
         return redirect('session-list')
 
@@ -30,21 +30,16 @@ def book_session(request, session_id):
         messages.error(request, "سالن پر است.")
         return redirect('session-list')
 
-    # اعمال تخفیف (اگر کاربر اشتراک داشته باشد)
-    price = 10000  # قیمت پیش‌فرض بلیت
-    if hasattr(user, 'subscription'):
-        price = user.subscription.apply_discount(price)
-
     # ایجاد رزرو
     Booking.objects.create(user=user, session=session)
-    messages.success(request, f"سانس با موفقیت رزرو شد. قیمت نهایی: {price} تومان")
+    messages.success(request, "سانس با موفقیت رزرو شد.")
     return redirect('session-list')
+
+
 
 
 def session_list(request):
     sessions = Session.objects.all()
-    
     for session in sessions:
-        session.remaining_capacity = session.capacity - session.booked_seats  # مقدار محاسبه‌شده
-
+        session.remaining_capacity = session.capacity - session.booked_seats  # محاسبه ظرفیت باقی‌مانده
     return render(request, 'bookings/session_list.html', {'sessions': sessions})
