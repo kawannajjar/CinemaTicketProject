@@ -29,7 +29,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(max_length=150, unique=True, blank=True)
     birthdate = models.DateField()
     registration_date = models.DateTimeField(default=timezone.now)
     role = models.CharField(max_length=5, choices=Role.choices, default=Role.USER)
