@@ -1261,3 +1261,88 @@ File /home/kawan/Desktop/CinemaTicketProject/venv/lib/python3.12/site-packages/d
 File /home/kawan/Desktop/CinemaTicketProject/venv/lib/python3.12/site-packages/django/contrib/messages/storage/cookie.py first seen with mtime 1739601327.9037244
 File /home/kawan/Desktop/CinemaTicketProject/venv/lib/python3.12/site-packages/django/contrib/sessions/serializers.py first seen with mtime 1739601327.9717247
 "GET /test-log/ HTTP/1.1" 200 44
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "banking_bankaccount" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "account_number" varchar(16) NOT NULL UNIQUE, "balance" decimal NOT NULL, "password" varchar(128) NOT NULL, "cvv2" varchar(4) NOT NULL, "user_id" char(32) NOT NULL REFERENCES "users_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+(0.000) CREATE TABLE "banking_bankaccount" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "account_number" varchar(16) NOT NULL UNIQUE, "balance" decimal NOT NULL, "password" varchar(128) NOT NULL, "cvv2" varchar(4) NOT NULL, "user_id" char(32) NOT NULL REFERENCES "users_user" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+CREATE INDEX "banking_bankaccount_user_id_f8c4f41d" ON "banking_bankaccount" ("user_id"); (params None)
+(0.000) CREATE INDEX "banking_bankaccount_user_id_f8c4f41d" ON "banking_bankaccount" ("user_id"); args=None; alias=default
+(0.005) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('banking', '0001_initial', '2025-02-15 07:22:28.283364') RETURNING "django_migrations"."id"; args=('banking', '0001_initial', '2025-02-15 07:22:28.283364'); alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "subscriptions_subscription" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "sub_type" varchar(10) NOT NULL, "start_date" date NOT NULL, "user_id" char(32) NOT NULL UNIQUE REFERENCES "users_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+(0.000) CREATE TABLE "subscriptions_subscription" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "sub_type" varchar(10) NOT NULL, "start_date" date NOT NULL, "user_id" char(32) NOT NULL UNIQUE REFERENCES "users_user" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('subscriptions', '0001_initial', '2025-02-15 07:22:28.293196') RETURNING "django_migrations"."id"; args=('subscriptions', '0001_initial', '2025-02-15 07:22:28.293196'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.004) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('group', 'permission')); args=('auth', 'group', 'permission'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(4,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'users'; args=('users',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'users' AND "django_content_type"."model" IN ('user')); args=('users', 'user'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'users'; args=('users',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'banking'; args=('banking',); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('banking', 'bankaccount') RETURNING "django_content_type"."id"; args=('banking', 'bankaccount'); alias=default
+(0.003) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'banking' AND "django_content_type"."model" IN ('bankaccount')); args=('banking', 'bankaccount'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(7,); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add bank account', 7, 'add_bankaccount'), ('Can change bank account', 7, 'change_bankaccount'), ('Can delete bank account', 7, 'delete_bankaccount'), ('Can view bank account', 7, 'view_bankaccount') RETURNING "auth_permission"."id"; args=('Can add bank account', 7, 'add_bankaccount', 'Can change bank account', 7, 'change_bankaccount', 'Can delete bank account', 7, 'delete_bankaccount', 'Can view bank account', 7, 'view_bankaccount'); alias=default
+(0.003) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'banking'; args=('banking',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'subscriptions'; args=('subscriptions',); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('subscriptions', 'subscription') RETURNING "django_content_type"."id"; args=('subscriptions', 'subscription'); alias=default
+(0.005) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'subscriptions' AND "django_content_type"."model" IN ('subscription')); args=('subscriptions', 'subscription'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8,); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add subscription', 8, 'add_subscription'), ('Can change subscription', 8, 'change_subscription'), ('Can delete subscription', 8, 'delete_subscription'), ('Can view subscription', 8, 'view_subscription') RETURNING "auth_permission"."id"; args=('Can add subscription', 8, 'add_subscription', 'Can change subscription', 8, 'change_subscription', 'Can delete subscription', 8, 'delete_subscription', 'Can view subscription', 8, 'view_subscription'); alias=default
+(0.003) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'subscriptions'; args=('subscriptions',); alias=default
+(0.007) INSERT INTO "users_user" ("password", "last_login", "id", "email", "birthdate", "registration_date", "role") VALUES ('pbkdf2_sha256$870000$4TM1fKekB1GW6WhZFv5ccZ$iRQkoHesxI9hf+oEb5aZDg6CANYjuy51t84YR9TNUWE=', NULL, '4ba0e02d29864e4da00444babc644fa2', 'test@example.com', '2000-01-01', '2025-02-15 07:23:47.757891', 'User'); args=('pbkdf2_sha256$870000$4TM1fKekB1GW6WhZFv5ccZ$iRQkoHesxI9hf+oEb5aZDg6CANYjuy51t84YR9TNUWE=', None, '4ba0e02d29864e4da00444babc644fa2', 'test@example.com', '2000-01-01', '2025-02-15 07:23:47.757891', Role.USER); alias=default
+(0.000) INSERT INTO "banking_bankaccount" ("user_id", "account_number", "balance", "password", "cvv2") VALUES ('4ba0e02d29864e4da00444babc644fa2', '1234567890123456', '0.00', '1234', '123') RETURNING "banking_bankaccount"."id"; args=('4ba0e02d29864e4da00444babc644fa2', '1234567890123456', '0.00', '1234', '123'); alias=default
+(0.006) UPDATE "banking_bankaccount" SET "user_id" = '4ba0e02d29864e4da00444babc644fa2', "account_number" = '1234567890123456', "balance" = '1000.00', "password" = '1234', "cvv2" = '123' WHERE "banking_bankaccount"."id" = 1; args=('4ba0e02d29864e4da00444babc644fa2', '1234567890123456', '1000.00', '1234', '123', 1); alias=default
+(0.007) UPDATE "banking_bankaccount" SET "user_id" = '4ba0e02d29864e4da00444babc644fa2', "account_number" = '1234567890123456', "balance" = '500.00', "password" = '1234', "cvv2" = '123' WHERE "banking_bankaccount"."id" = 1; args=('4ba0e02d29864e4da00444babc644fa2', '1234567890123456', '500.00', '1234', '123', 1); alias=default
+(0.001) INSERT INTO "subscriptions_subscription" ("user_id", "sub_type", "start_date") VALUES ('4ba0e02d29864e4da00444babc644fa2', 'Gold', '2025-02-15') RETURNING "subscriptions_subscription"."id"; args=('4ba0e02d29864e4da00444babc644fa2', 'Gold', '2025-02-15'); alias=default
